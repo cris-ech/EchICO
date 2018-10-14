@@ -1,5 +1,5 @@
-var EchCrowdsale = artifacts.require("EchCrowdsale");
-var EchToken = artifacts.require("EchToken");
+var EchCrowdsale = artifacts.require("EchTimedCrowdsale");
+var EchToken = artifacts.require("EchTimedToken");
 
 
 module.exports = function(deployer , network, accounts) {
@@ -10,6 +10,9 @@ module.exports = function(deployer , network, accounts) {
   var wallet = accounts[0];
   console.log('\n' + "la direccion del wallet es: " + wallet + '\n');
   var cap = new web3.BigNumber(3000000000000000000);
-  deployer.deploy(EchCrowdsale, rate, wallet, cap, echAddress);
+  var openingTime = 1539549900;
+  var closingTIme = 1539551100;
+
+  deployer.deploy(EchCrowdsale, rate, wallet, cap, echAddress, openingTime, closingTIme);
 };
 

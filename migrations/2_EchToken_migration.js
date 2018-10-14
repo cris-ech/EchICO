@@ -1,4 +1,4 @@
-var EchToken = artifacts.require("EchToken");
+var EchToken = artifacts.require("EchTimedToken");
 
 module.exports = function(deployer) {
   // deployment steps

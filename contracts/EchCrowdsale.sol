@@ -3,6 +3,7 @@ pragma solidity ^0.4.24;
 import "./EchToken.sol";
 import "openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
 import "openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
+import "openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol";
 
 /**
@@ -34,18 +35,21 @@ contract SampleCrowdsaleToken is ERC20Mintable {
  * to ensure that subcontracts works together as intended.
  */
 
-contract EchCrowdsale is CappedCrowdsale, MintedCrowdsale {
+contract EchTimedCrowdsale is CappedCrowdsale, MintedCrowdsale, TimedCrowdsale {
 
   constructor(
     uint256 rate,
     address wallet,
     uint256 cap,
-    ERC20 token //address of the token
+    ERC20 token, //address of the token
+    uint256 openingTime,
+    uint256 closingTime
 
   )
     public
     Crowdsale(rate, wallet, token)
     CappedCrowdsale(cap)
+    TimedCrowdsale(openingTime, closingTime)
 
   {
 

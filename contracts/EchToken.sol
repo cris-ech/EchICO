@@ -7,10 +7,10 @@ import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
  * @title EchToken
  * @dev Very simple ERC20 mintable token to use in a crowdsale
  */
-contract  EchToken is Ownable, MintableToken {
+contract  EchTimedToken is Ownable, MintableToken {
 
-  string public constant name = "EchToken";
-  string public constant symbol = "ECH";
+  string public constant name = "EchTimedToken";
+  string public constant symbol = "ECHT";
   uint8 public constant decimals = 18;
 
 
