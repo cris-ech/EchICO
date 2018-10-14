@@ -1,0 +1,6 @@
+# .gitignore
+/node_modules
+/build
+truffle.js
+truffle-config.js
+
